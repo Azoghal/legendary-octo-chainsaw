@@ -1,8 +1,9 @@
 extends Area2D
 
+
 var tile_size = 16
-var moves_per_player_move = 1
-var move_budget = 1;
+var moves_per_player_move = 3
+var move_budget = 0;
 var directions = {
 	"right": Vector2.RIGHT,
 	"left": Vector2.LEFT,
@@ -21,7 +22,7 @@ func _ready():
 @onready var player_ray = $PlayerRay
 
 func inc_budget(player_pos):
-	move_budget += 1
+	move_budget += moves_per_player_move
 
 func enemy_rogue_move():
 	var dir = directions_i[rng.randi_range(0,3)]
@@ -38,8 +39,8 @@ func enemy_rogue_move():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	while move_budget > 0:
+		enemy_rogue_move()
 	
 func _physics_process(delta):
-	if move_budget > 0:
-		enemy_rogue_move()
+	pass
