@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://5yf4wmrcmt7j"]
+
+[ext_resource type="Script" path="res://scripts/RoguePlayer.gd" id="1_sa16p"]
+[ext_resource type="Texture2D" uid="uid://c7keoc0v4q66k" path="res://Sprites/colored-transparent_packed.png" id="2_aud4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh1nw"]
+size = Vector2(16, 16)
+
+[node name="RoguePlayer" type="Area2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_sa16p")
+
+[node name="SpriteHolder" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteHolder"]
+texture_filter = 1
+texture = ExtResource("2_aud4n")
+region_enabled = true
+region_rect = Rect2(432, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kh1nw")
+debug_color = Color(0, 0.435294, 0.521569, 0.419608)
+
+[node name="MovementCollisionRay" type="RayCast2D" parent="."]
+collide_with_areas = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="EnemyRay" type="RayCast2D" parent="."]
+collision_mask = 4
+collide_with_areas = true
