@@ -2,7 +2,7 @@ extends Area2D
 
 
 var tile_size = 16
-var moves_per_player_move = 3
+var moves_per_player_move = 1
 var move_budget = 0;
 var directions = {
 	"right": Vector2.RIGHT,
@@ -35,6 +35,7 @@ func enemy_rogue_move():
 		if player_ray.is_colliding():
 			print("resolve attack against player")
 		else:
+			# TODO: add astar occupy and free
 			position += dir * tile_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

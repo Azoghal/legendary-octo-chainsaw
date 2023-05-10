@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd5whffg8b0gs"]
+
+[ext_resource type="Texture2D" uid="uid://c7keoc0v4q66k" path="res://Sprites/colored-transparent_packed.png" id="1_buyac"]
+
+[node name="Vision" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_buyac")
+region_enabled = true
+region_rect = Rect2(64, 240, 16, 16)

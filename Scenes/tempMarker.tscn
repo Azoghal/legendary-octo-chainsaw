@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://7r31rblo4aa2"]
+
+[ext_resource type="Texture2D" uid="uid://n0uwy3g41wdj" path="res://Sprites/marker.png" id="1_2b8ak"]
+[ext_resource type="Script" path="res://scripts/tempNode2D.gd" id="2_e1c8p"]
+
+[node name="tempMarker" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_2b8ak")
+script = ExtResource("2_e1c8p")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.531
+anchor_top = 0.5
+anchor_right = 0.531
+anchor_bottom = 0.5
+offset_left = -44.496
+offset_top = -16.0
+offset_right = 28.504
+offset_bottom = 1.0
+theme_override_font_sizes/font_size = 10
+text = "Text Test Label
+"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="timer_finished"]
